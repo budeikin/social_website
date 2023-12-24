@@ -1,11 +1,13 @@
 from django.urls import path
-from .views import dashboard
+from .views import dashboard, register
 from django.contrib.auth import views as auth_views
 
 # app_name = 'account'
 
 urlpatterns = [
-    # path('login/', user_login, name='login')
+    # register
+    path('register/', register, name='register'),
+    # login & logout
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     # change password
