@@ -5,8 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Dashboard</h1>
+    <h1>Dashboard of user {{ user.username }}</h1>
     <p>Welcome to your dashboard.</p>
+    <p>first name : {{ user.first_name }}</p>
+    <p>last name : {{ user.last_name }}</p>
+    <p>email address : {{ user.email }}</p>
+
+    <hr>
     <a href="{% url 'password_change' %}">change password</a><br><br>
+    <a href="{% url 'edit' %}">edit information</a><br><br>
     <a href="{% url 'password_reset' %}">reset password</a>
 {% endblock %}

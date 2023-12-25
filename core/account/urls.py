@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import dashboard, register
+from .views import dashboard, register, edit
 from django.contrib.auth import views as auth_views
 
 # app_name = 'account'
@@ -21,4 +21,6 @@ urlpatterns = [
     path('password-change/complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     # dashboard
     path('', dashboard, name='dashboard'),
+    # edit profile and user info
+    path('edit/', edit, name='edit')
 ]
