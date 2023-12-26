@@ -3,7 +3,9 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
+
     <link href="{% static "account/css/base.css" %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div id="header">
@@ -35,5 +37,20 @@
     {% block content %}
     {% endblock %}
 </div>
+
+
+
+
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            Swal.fire({
+                title: '{{ message }}',
+                icon: '{{ message.tags }}',
+                confirmButtonText: 'ok'
+            })
+        {% endfor %}
+    </script>
+{% endif %}
 </body>
 </html>
