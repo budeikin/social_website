@@ -6,10 +6,13 @@
 
 {% block content %}
     <h1>Dashboard of user {{ user.username }}</h1>
-    <p>Welcome to your dashboard.</p>
-    <p>first name : {{ user.first_name }}</p>
-    <p>last name : {{ user.last_name }}</p>
-    <p>email address : {{ user.email }}</p>
+    {% with total_images_created=request.user.images_created.count %}
+        <p>Welcome to your dashboard. You have bookmarked {{ total_images_created }}
+            image{{ total_images_created|pluralize }}.</p>
+    {% endwith %}
+    <p>Drag the following button to your bookmarks toolbar to bookmark images
+        from other websites → <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">Bookmark
+            it</a></p>
 
     <hr>
     <a href="{% url 'password_change' %}">change password</a><br><br>
