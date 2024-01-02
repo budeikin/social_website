@@ -6,6 +6,7 @@
 
     <link href="{% static "account/css/base.css" %}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 <body>
 <div id="header">
@@ -52,5 +53,14 @@
         {% endfor %}
     </script>
 {% endif %}
+
+<script>
+    const csrftoken = Cookies.get('csrftoken');
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        {% block domready %}
+        {% endblock %}
+    })
+</script>
 </body>
 </html>
