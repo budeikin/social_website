@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import dashboard, register, edit, user_detail, user_list
+from .views import dashboard, register, edit, user_detail, user_list, user_follow
 from django.contrib.auth import views as auth_views
 
 # app_name = 'account'
@@ -24,5 +24,7 @@ urlpatterns = [
     # edit profile and user info
     path('edit/', edit, name='edit'),
     path('users/', user_list, name='user_list'),
+    path('users/follow/', user_follow, name='user_follow'),
     path('users/<username>/', user_detail, name='user_detail'),
+
 ]
